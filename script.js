@@ -54,3 +54,29 @@ function displayWeather(data) {
         `;
     }
 }
+
+function saveSearch(city) {
+    let cities = JSON.parse(localStorage.getItem("cities")) || [];
+
+    if (!cities.includes(city)) {
+        cities.push(city);
+        localStorage.setItem("cities", JSON.stringify(cities));
+    }
+}
+
+// Function to display search history
+function displaySearchHistory() {
+    const cityList = document.getElementById("cityList");
+    cityList.innerHTML = "";
+
+    let cities = JSON.parse(localStorage.getItem("cities")) || [];
+
+    cities.forEach(city => {
+        const listItem = document.createElement("li");
+        listItem.textContent = city;
+        cityList.appendChild(listItem);
+    });
+}
+
+// Initial display of search history when the page loads
+displaySearchHistory();
