@@ -56,7 +56,7 @@ function displayWeather(data) {
 }
 
 function saveSearch(city) {
-    let cities = [""];
+    let cities = ["london", "paris"];
     cities.push(city);
     localStorage.setItem("cities", JSON.stringify(cities));
 }
